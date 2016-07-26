@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='groceryApp'>
+  <head>
+    <link href="stylesheets/styles.css" />
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+
+  </head>
+
+  <body ng-controller="GroceryController as grocery">
+    <div class="wrapper">
+      <h1>Grocery List</h1>
+      <h2>Add Item to List</h2>
+      Grocery Item: <input type="text" ng-model="grocery.name" />
+      Quantity: <input type="number" ng-model="grocery.qty" />
+      <button ng-click="grocery.addItem()">Add</button>
+
+      <h2>Needed Items</h2>
+      <ul>
+        <li ng-repeat="item in grocery.groceryItems">
+          Item: <input type="text" ng-model="item.name" />
+          Quantity: <input type="number" ng-model="item.qty" />
+          <br><button ng-click="grocery.deleteItem(item._id)">Delete Item</button>
+          <button ng-click="grocery.updateItem(item)">Update Item</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+
+</html>
